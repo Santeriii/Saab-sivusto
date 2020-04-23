@@ -1,0 +1,161 @@
+body {
+    background: url("images/pxfuel.com.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+    height: 100%;
+    margin:0;
+    padding:0;
+    position: relative;
+}
+
+.hakukuva{
+    width: 100%;
+}
+.pienihakukuva{
+    width: 100%;
+
+}
+
+.icon {
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 44px;
+    height: 44px;
+    border: none;
+    background-color: #333;
+}
+
+.resultItem {
+    margin-bottom: 20px;
+    color: black;
+    border-radius: 2px;
+    padding: 10px;
+    width: 100%;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
+.searchResults {
+    padding: 20px 0 50px;
+    margin-left: auto;
+    text-align: left;
+}
+
+.searchForm-input {
+    background-color: white;
+    border: none;
+    height: 44px;
+    width: 100%;
+    padding: 5px 10px;
+    color: black;
+}
+
+.searchForm {
+    margin-left: 30px;
+    display: flex;
+    background-color: #333;
+    border: 2px solid #242424;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hakulaatikko{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(255, 255, 255, 0.9);
+    margin: auto;
+    font-size: 20px;
+    text-align: center;
+    width: 60%;
+    position: relative;
+    border-bottom: solid 2px black;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+#hakuinfo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    border: #333;
+    background-color: #333;
+    border-radius: 20px;
+    margin: auto;
+    font-size: 20px;
+    padding: 20px;
+    width: 60%;
+    position: relative;
+    top: 170px;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+.searchForm-container {
+    width: 100%;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+}
+
+
+.tekstilaatikko{
+    padding-left: 3%;
+    padding-right: 3%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: double 10px white;
+    background-color: black;
+    margin: auto;
+    margin-top: 3%;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    color: white;
+    width: 70%;
+    position: relative;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+
+li {
+    float: left;
+}
+
+#mainLogo {
+    height: 170px;
+}
+
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #111;
+}
+
+h1 {
+    display: flex;
+    align-items: center;
+    height: 170px;
+    margin: auto;
+    background-color: black;
+    text-transform: uppercase;
+    font-size: xx-large;
+    font-family: "Britannic Bold";
+    color: white;
+    padding-left: 3%;
+}
