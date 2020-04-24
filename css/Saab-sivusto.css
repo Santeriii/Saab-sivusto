@@ -14,8 +14,19 @@ body {
     width: 100%;
 }
 .pienihakukuva{
-    width: 100%;
+    width: 30%;
+    height: 17%;
+}
 
+#videoOtsikko {
+    position: absolute;
+    top: 3%;
+    left: 40%;
+}
+
+iframe {
+    margin-top: 11%;
+    margin-bottom: 3%;
 }
 
 .icon {
@@ -61,6 +72,7 @@ body {
     margin-left: auto;
     margin-right: auto;
 }
+
 
 .hakulaatikko{
     display: flex;
@@ -158,4 +170,54 @@ h1 {
     font-family: "Britannic Bold";
     color: white;
     padding-left: 3%;
+}
+
+#content-wrap {
+    padding-bottom: 50px;
+    padding-top: 20px;
+    clear: both;
+    margin: 0 auto;
+    min-height: 307px;
+    position: relative;
+    top: 170px;
+}
+.hakulaatikko2{
+    background-color: #333;
+    border: none;
+    display:flex;
+    width: 15%;
+    flex-wrap: wrap;
+    padding: 5px 10px;
+    margin: 20px;
+    color: black;
+    color: black;
+    position: fixed;
+    top: 170px;
+    justify-content: center;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+.hauntulokset{
+    color: white;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    border: double 10px white;
+    background-color: black;
+    margin: auto;
+    border-radius: 20px;
+    width: 60%;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+#saab93{
+    width: 90%;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+#saab95{
+    width: 90%;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+#saab94x{
+    width:90%;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 }
