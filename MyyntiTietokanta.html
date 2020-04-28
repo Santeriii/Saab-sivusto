@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Etusivu</title>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link href="css/lightbox.css" rel="stylesheet" />
+    <link href="css/Saab-sivusto.css" type="text/css" rel="stylesheet">
+
+    <style>
+        button{
+            background-color: lavender;
+        }
+        input{
+            background-color: azure;
+        }
+        select{
+            background-color: lavender;
+        }
+        option{
+            font-weight: bold;
+        }
+        img{
+            position: static;
+            float: left
+        }
+        .tekstilaatikko{
+            position: fixed;
+            top: 20%;
+            left: 20%;
+            height: 1000px;
+        }
+    </style>
+
+</head>
+<body>
+
+<h1>
+    <div style="float: left;">
+        <img style="vertical-align: 0px" src="css\images\Saab_logo.png" alt="Saab log" id="mainLogo">
+    </div>
+    <div id="myyntipalstaText">
+        Myyntipalsta
+    </div>
+</h1>
+
+<ul>
+    <li><a href="Etusivu.html">Etusivu</a></li>
+    <li><a>Uutiset</a></li>
+    <li><a href="Wiki.html">Wiki</a></li>
+    <li><a href="Myyntipalsta.html">Myyntipalsta</a></li>
+    <li><a href="Videot.html">Videot</a></li>
+    <li><a>Yhteystiedot</a></li>
+</ul>
+
+
+<div id="page-container">
+
+    <div id="content-wrap">
+
+
+
+        <div class="hauntulokset">
+            <ul id="tulokset">
+
+            </ul>
+
+            <div id="saab93" >
+                <div class="tulos">
+                    <p><b>9 300€ Saab 9-3 Aero 2.0T Convertible</b><br><br>Tästä tehokas ja näyttävä kesäkiesi sopuhintaan!</p>
+                    <div class="hakukuva">
+                        <a href="css/images/Saab_9-3_Aero.jpg" data-lightbox ="galleria" data-title="Saab 9-3">
+                            <img class="pienihakukuva" src="css/images/Saab_9-3_Aero.jpg" alt="Saab 9-3">
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+
+            <div id="saab95">
+                <div class="tulos">
+                    <p><b>12 100€ Saab 9-5 Aero 2.0TTiD 190hv</b><br><br>Uusinta korimallia edustava, huippukuntoinen & vähän ajettu 9-5.</p>
+                    <div class="hakukuva">
+                        <a href="css/images/Saab_9-5.jpg" data-lightbox ="galleria" data-title="Saab 9-5">
+                            <img class="pienihakukuva" src="css/images/Saab_9-5.jpg" alt="Saab 9-5">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div id="saab94x">
+                <div class="tulos">
+                    <p><b>23 400€ Saab 9-4x 2.0TTiD XWD</b><br><br>Harvinaista herkkua tarjolla! Alle vuoden valmistuksessa ollut Saab-katumaasturi.</p>
+                    <div class="hakukuva">
+                        <a href="img/korvasieni.jpg" data-lightbox ="galleria" data-title="Saab 9-4x">
+                            <img class="pienihakukuva" src="css/images/Saab_9-4x.jpg" alt="Saab 9-4x">
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        </p>
+
+
+        <div class="hakulaatikko2">
+            <p id="p1"></p>
+
+            <select id="operators">
+                <option value="kaikki">Kaikki</option>
+                <option value="Saab 9-3">Saab 9-3</option>
+                <option value="Saab 900">Saab 900</option>
+                <option value="saab94x">Saab 9-4x</option>
+            </select><br/><br/>
+
+
+            <script>
+                function automerkki() {
+                    var oper = document.getElementById('operators').value;
+                    let saab93 = document.getElementById('saab93');
+                    let saab95 = document.getElementById('saab95');
+                    let saab94x = document.getElementById('saab94x');
+
+                    if (oper==='kaikki'){
+                        saab93.style.display = 'inline';
+                        saab95.style.display = 'inline';
+                        saab94x.style.display = 'inline';
+                    }
+
+                    if (oper === 'saab93'){
+                        saab93.style.display = 'inline';
+                        saab95.style.display = 'none';
+                        saab94x.style.display = 'none';
+                    }
+
+                    if (oper === 'saab95'){
+                        saab93.style.display = 'none';
+                        saab95.style.display = 'inline';
+                        saab94x.style.display = 'none';
+                    }
+                    if (oper === 'saab94x') {
+                        saab93.style.display = 'none';
+                        saab95.style.display = 'none';
+                        saab94x.style.display = 'inline';
+                    }
+                }
+
+
+                var json; //json is global...
+
+                function makeQuery() {
+                    let valinta = document.getElementById("operators").value;
+                    let lista = document.getElementById("tulokset");
+                    let tyhja = "";
+                    console.log(valinta);
+                    let sivu = "http://localhost:8080/api/ilmoitukset?merkki=" + valinta;
+                    console.log(sivu);
+                        var xmlhttp = new XMLHttpRequest();
+                        xmlhttp.onreadystatechange = function() {
+                            if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
+
+                                //json = xmlhttp.responseText;
+                                json = JSON.parse(xmlhttp.responseText);
+                                //myFunction(resultArr);
+                                var count = Object.keys(json).length;
+                                console.log(json);
+                                console.log(count);
+                                //if (json.numOfRows> 0){ // something found
+                                //console.log(json.numOfRows + ", " + json.Location_name);
+
+                                for(let i = 0; i<count; i++){
+                                    console.log(json[i].Rekisteritunnus);
+                                    tyhja += "<li>" + json[i].Rekisteritunnus + "</li><br>";
+                                }
+                                lista.innerHTML = tyhja;
+                                //}
+                                /*else {
+
+                                    document.getElementById("locationInfo").innerHTML = "<br/>Ei tapahtumatietoja tältä ajalta.";
+
+                                }*/
+
+                            }
+                        };
+                        xmlhttp.open("GET", sivu, true);
+                        xmlhttp.send();
+                }
+            </script>
+
+            <button onclick="makeQuery();" class="icon searchIcon">
+                <img src="https://image.ibb.co/cpG8zk/search.png" alt="Magnifying Glass Icon">
+            </button>
+        </div>
+    </div>
+</div>
+
+<script src="js/lightbox-plus-jquery.js"></script>
+</body>
+</html>
