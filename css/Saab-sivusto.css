@@ -249,3 +249,47 @@ h1 {
     width:90%;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 }
+
+
+
+#uutiset_sisalto {
+    width: 50%;
+    height: 40%;
+    background-color: black;
+    border: double 10px white;
+
+}
+
+.uutis_linkki > * {
+    width: 60%;
+    height: 60%;
+}
+
+.uutis_linkki > a {
+    border-bottom: white;
+    border-style: solid;
+}
+
+#uutiset_sisalto {
+    float: left;
+}
+
+#uutiset_sisalto > p {
+    color: white;
+    font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
+}
+
+
+.uutis_nav {
+    float: right;
+    background-color: black;
+    width: 40%;
+    height: 150px;
+    border:1px solid #ccc;
+    overflow:auto;
+}
+
+.uutis_nav > *{
+    width: 60%;
+    height: 60%;
+}
