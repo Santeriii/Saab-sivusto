@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+</head>
+<body>
+<form action = "http://localhost:8080/api/lisays" method = "POST">
+    Hinta: <input type = "numeric" name = "Hinta"> <br>
+    Malli: <input type = "text" name = "Malli"> <br>
+    Vuosimalli: <input type = "numeric" name = "Vuosimalli"> <br>
+    Ajokilometrit: <input type = "text" name = "Ajokilometrit"> <br>
+    Moottori: <input type = "text" name = "Moottori"> <br>
+    Vaihteisto: <input type = "text" name = "Vaihteisto"> <br>
+    Rekisteritunnus: <input type = "text" name = "Rekisteritunnus"> <br>
+    Vari: <input type = "text" name = "Vari"> <br>
+    Kuvaus: <input type = "text" name = "Kuvaus"> <br>
+    Kuva: <input type = "text" name = "Kuva" id="kuva">
+    Koodi: <input type= "text" name = "Koodi">
+    <input type = "submit" value = "Submit">
+</form>
+<button id="nappula" onclick="kokeilu">Kokeile kuvaa</button>
+<div id="kuvallepaikka">
+
+</div>
+
+<script>
+    let nappula = document.getElementById("nappula");
+    let paikka = document.getElementById("kuvallepaikka");
+    nappula.addEventListener("click", kokeilu);
+    function kokeilu() {
+        let kuva = document.getElementById("kuva");
+        console.log(kuva.value);
+        paikka.innerHTML = "<img src="+kuva.value+"alt=Lamp width=32 height=32>";
+    }
+
+
+</script>
+</body>
+</html>
