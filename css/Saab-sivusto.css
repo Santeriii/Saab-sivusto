@@ -224,7 +224,7 @@ h1 {
 
 
 
-#uutiset_sisalto {
+#uutisluettelo {
     width: 50%;
     height: 40%;
     background-color: black;
@@ -242,11 +242,11 @@ h1 {
     border-style: solid;
 }
 
-#uutiset_sisalto {
+#uutisluettelo {
     float: left;
 }
 
-#uutiset_sisalto > p {
+#uutisluettelo > p {
     color: white;
     font-family: -apple-system,BlinkMacSystemFont,Segoe UI,Helvetica,Arial,sans-serif,Apple Color Emoji,Segoe UI Emoji;
 }
@@ -264,4 +264,23 @@ h1 {
 .uutis_nav > *{
     width: 60%;
     height: 60%;
+}
+
+.uutispalsta {
+    float: left;
+    width: 50%;
+    background-color: black;
+    border: double 10px white;
+
+}
+
+.uutispalsta > img {
+    width: 60%;
+    height: 60%;
+}
+
+.uutispalsta > * {
+    color: white;
+    margin-left: 2%;
+    margin-right: 2%;
 }
