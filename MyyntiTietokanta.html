@@ -62,7 +62,7 @@
 
         <div class="hauntulokset">
             <ul id="tulokset">
-
+            <!--
             </ul>
 
             <div id="saab93" >
@@ -99,7 +99,7 @@
                     </div>
                 </div>
             </div>
-
+            -->
         </div>
 
         </p>
@@ -172,7 +172,8 @@
 
                                 for(let i = 0; i<count; i++){
                                     console.log(json[i].Rekisteritunnus);
-                                    tyhja += "<li>" + json[i].Rekisteritunnus + "</li><br>";
+                                    tyhja += "<li id='autoInfo'><b>" + json[i].Hinta + "€ " + json[i].Vuosimalli + " " + json[i].Malli + " " + json[i].Moottori + ", " + json[i].Vaihteisto + " - Rek. " + json[i].Rekisteritunnus + "  Ml. " + json[i].Ajokilometrit + "km, väri: " + json[i].Vari + "</b></li><br>";
+                                    tyhja += "<li class=\"articlename\">"+ "\n" + json[i].Kuvaus + "</li><img class=\"half\" src='" + json[i].Kuva + "' alt=\"Saab 9-3\">";
                                 }
                                 lista.innerHTML = tyhja;
                                 //}
