@@ -104,58 +104,45 @@
 
         </p>
 
-
         <div class="hakulaatikko2">
             <p id="p1"></p>
 
+            <input type="range" id="vol" name="vol" min="0" max="20000">
+
             <select id="operators">
-                <option value="kaikki">Kaikki</option>
+                <option value="kaikki">Ei väliä</option>
                 <option value="Saab 9-3">Saab 9-3</option>
                 <option value="Saab 900">Saab 900</option>
-                <option value="saab94x">Saab 9-4x</option>
-            </select><br/><br/>
+                <option value="Saab 9-4x">Saab 9-4x</option>
+            </select>
 
+            <select id="vaihteisto">
+                <option value="kaikki">Ei väliä</option>
+                <option value="Manuaali">Manuaali</option>
+                <option value="Automaatti">Automaatti</option>
+            </select>
+
+            <select id="polttoaine">
+                <option value="kaikki">Ei väliä</option>
+                <option value="Bensiini">Bensiini</option>
+                <option value="Diesel">Diesel</option>
+            </select>
 
             <script>
-                function automerkki() {
-                    var oper = document.getElementById('operators').value;
-                    let saab93 = document.getElementById('saab93');
-                    let saab95 = document.getElementById('saab95');
-                    let saab94x = document.getElementById('saab94x');
-
-                    if (oper==='kaikki'){
-                        saab93.style.display = 'inline';
-                        saab95.style.display = 'inline';
-                        saab94x.style.display = 'inline';
-                    }
-
-                    if (oper === 'saab93'){
-                        saab93.style.display = 'inline';
-                        saab95.style.display = 'none';
-                        saab94x.style.display = 'none';
-                    }
-
-                    if (oper === 'saab95'){
-                        saab93.style.display = 'none';
-                        saab95.style.display = 'inline';
-                        saab94x.style.display = 'none';
-                    }
-                    if (oper === 'saab94x') {
-                        saab93.style.display = 'none';
-                        saab95.style.display = 'none';
-                        saab94x.style.display = 'inline';
-                    }
-                }
 
 
                 var json; //json is global...
 
                 function makeQuery() {
+                    let polttoaine = document.getElementById("polttoaine").value;
+                    let valintaVaihteisto = document.getElementById("vaihteisto").value;
+                    let hinta = document.getElementById("vol").value;
                     let valinta = document.getElementById("operators").value;
                     let lista = document.getElementById("tulokset");
                     let tyhja = "";
                     console.log(valinta);
-                    let sivu = "http://localhost:8080/api/ilmoitukset?merkki=" + valinta;
+                    console.log(valintaVaihteisto);
+                    let sivu = "http://localhost:8080/api/ilmoitukset?vaihteisto=" + valintaVaihteisto + "&merkki=" + valinta + "&hinta=" + hinta + "&polttoaine=" + polttoaine;
                     console.log(sivu);
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function() {
