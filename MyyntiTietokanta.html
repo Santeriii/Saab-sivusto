@@ -114,9 +114,23 @@
                 <option value="Saab 900">Saab 900</option>
                 <option value="saab94x">Saab 9-4x</option>
             </select><br/><br/>
-
+            <div class="slidecontainer">
+                <input type="range" min="0" max="100000" value="0" class="slider" id="myRange">
+                <br><p id="demo"></p>
+            </div>
 
             <script>
+
+                var slider = document.getElementById("myRange");
+                let hinta = slider.value;
+                var output = document.getElementById("demo");
+                output.innerHTML = slider.value; // Display the default slider value
+
+                // Update the current slider value (each time you drag the slider handle)
+                slider.oninput = function() {
+                    output.innerHTML = this.value;
+                }
+
                 function automerkki() {
                     var oper = document.getElementById('operators').value;
                     let saab93 = document.getElementById('saab93');
@@ -155,7 +169,7 @@
                     let lista = document.getElementById("tulokset");
                     let tyhja = "";
                     console.log(valinta);
-                    let sivu = "http://localhost:8080/api/ilmoitukset?merkki=" + valinta;
+                    let sivu = "http://localhost:8080/api/ilmoitukset?merkki=" + valinta + "&hinta=" + hinta;
                     console.log(sivu);
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function() {
