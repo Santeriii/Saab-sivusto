@@ -3,24 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+   <!-- <link href="css/lisaa.css" type="text/css" rel="stylesheet"> -->
 
 </head>
 <body>
+<h1>Oman ilmoituksen lisääminen</h1>
+<p>Tällä sivulla voit lisätä myyntipalstalle oman ilmoituksesi, muista täyttää kaikki kohdat alla olevat kohdat.</p>
 <form action = "http://localhost:8080/api/lisays" method = "POST">
     Hinta: <input type = "numeric" name = "Hinta"> <br>
     Malli: <input type = "text" name = "Malli"> <br>
     Vuosimalli: <input type = "numeric" name = "Vuosimalli"> <br>
     Ajokilometrit: <input type = "text" name = "Ajokilometrit"> <br>
     Moottori: <input type = "text" name = "Moottori"> <br>
+    Polttoaine <input type = "text" name = "Polttoaine"> <br>
     Vaihteisto: <input type = "text" name = "Vaihteisto"> <br>
     Rekisteritunnus: <input type = "text" name = "Rekisteritunnus"> <br>
     Väri: <input type = "text" name = "Vari"> <br>
     Kuvaus: <input type = "text" name = "Kuvaus"> <br>
-    Kuva: <input type = "text" name = "Kuva" id="kuva"> <br>
-    Koodi: <input type= "text" name = "Koodi">
+    Koodi: <input type= "text" name = "Koodi"> Koodilla voit poistaa halutessasi oman ilmoutuksesi<br>
+    Kuva: <input type = "text" name = "Kuva" id="kuva" placeholder="http://i.imgur.com/esim.png">
     <input type = "submit" value = "Submit">
 </form>
 <button id="nappula" onclick="kokeilu">Kokeile kuvaa</button>
+<p>Kokeilun jälkeen kuvan pitäisi näkyä tässä alla.</p>
 <div id="kuvallepaikka">
 
 </div>
