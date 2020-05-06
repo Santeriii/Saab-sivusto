@@ -35,6 +35,8 @@
 </head>
 <body>
 
+
+
 <h1>
     <div style="float: left;">
         <img style="vertical-align: 0px" src="css\images\Saab_logo.png" alt="Saab log" id="mainLogo">
@@ -57,57 +59,62 @@
 <div id="page-container">
 
     <div id="content-wrap">
-
-
-
+        <div class="hakulaatikko2">
+        <p>Haluatko lisätä oman ilmoituksen sivulle?<p><br>
+        <p>Haluatko lisätä oman ilmoituksen sivulle? Se onnistuu painalla alla olevaa linkkiä!</p><br>
+        <a style="padding-left: 5%" href="Lisayssivu.html">lisää</a>
+        <p>Tässä voit poistaa oman ilmoituksesi koodin avulla</p>
+        <input type = "text" name = "Koodi" required placeholder="Poistokoodi" id="poistoKoodi"> <br>
+        <input type = "button" onclick="koodiHaku()" value="Poista">
+        </div>
         <div class="hauntulokset">
             <ul id="tulokset">
-            <!--
+                <p>Hae autoja</p>
             </ul>
+            <!--
+                        <div id="saab93" >
+                            <div class="tulos">
+                                <p><b>9 300€ Saab 9-3 Aero 2.0T Convertible</b><br><br>Tästä tehokas ja näyttävä kesäkiesi sopuhintaan!</p>
+                                <div class="hakukuva">
+                                    <a href="css/images/Saab_9-3_Aero.jpg" data-lightbox ="galleria" data-title="Saab 9-3">
+                                        <img class="pienihakukuva" src="css/images/Saab_9-3_Aero.jpg" alt="Saab 9-3">
+                                    </a>
+                                </div>
+                            </div>
 
-            <div id="saab93" >
-                <div class="tulos">
-                    <p><b>9 300€ Saab 9-3 Aero 2.0T Convertible</b><br><br>Tästä tehokas ja näyttävä kesäkiesi sopuhintaan!</p>
-                    <div class="hakukuva">
-                        <a href="css/images/Saab_9-3_Aero.jpg" data-lightbox ="galleria" data-title="Saab 9-3">
-                            <img class="pienihakukuva" src="css/images/Saab_9-3_Aero.jpg" alt="Saab 9-3">
-                        </a>
-                    </div>
-                </div>
-
-            </div>
+                        </div>
 
 
-            <div id="saab95">
-                <div class="tulos">
-                    <p><b>12 100€ Saab 9-5 Aero 2.0TTiD 190hv</b><br><br>Uusinta korimallia edustava, huippukuntoinen & vähän ajettu 9-5.</p>
-                    <div class="hakukuva">
-                        <a href="css/images/Saab_9-5.jpg" data-lightbox ="galleria" data-title="Saab 9-5">
-                            <img class="pienihakukuva" src="css/images/Saab_9-5.jpg" alt="Saab 9-5">
-                        </a>
-                    </div>
-                </div>
-            </div>
+                        <div id="saab95">
+                            <div class="tulos">
+                                <p><b>12 100€ Saab 9-5 Aero 2.0TTiD 190hv</b><br><br>Uusinta korimallia edustava, huippukuntoinen & vähän ajettu 9-5.</p>
+                                <div class="hakukuva">
+                                    <a href="css/images/Saab_9-5.jpg" data-lightbox ="galleria" data-title="Saab 9-5">
+                                        <img class="pienihakukuva" src="css/images/Saab_9-5.jpg" alt="Saab 9-5">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
 
-            <div id="saab94x">
-                <div class="tulos">
-                    <p><b>23 400€ Saab 9-4x 2.0TTiD XWD</b><br><br>Harvinaista herkkua tarjolla! Alle vuoden valmistuksessa ollut Saab-katumaasturi.</p>
-                    <div class="hakukuva">
-                        <a href="img/korvasieni.jpg" data-lightbox ="galleria" data-title="Saab 9-4x">
-                            <img class="pienihakukuva" src="css/images/Saab_9-4x.jpg" alt="Saab 9-4x">
-                        </a>
-                    </div>
-                </div>
-            </div>
-            -->
+                        <div id="saab94x">
+                            <div class="tulos">
+                                <p><b>23 400€ Saab 9-4x 2.0TTiD XWD</b><br><br>Harvinaista herkkua tarjolla! Alle vuoden valmistuksessa ollut Saab-katumaasturi.</p>
+                                <div class="hakukuva">
+                                    <a href="img/korvasieni.jpg" data-lightbox ="galleria" data-title="Saab 9-4x">
+                                        <img class="pienihakukuva" src="css/images/Saab_9-4x.jpg" alt="Saab 9-4x">
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                        -->
         </div>
 
-        </p>
 
         <div class="hakulaatikko2">
-            <p id="p1"></p>
+
 
             <input type="range" id="vol" name="vol" min="0" max="20000">
+            <p id="p1"></p><br>
 
             <select id="operators">
                 <option value="kaikki">Ei väliä</option>
@@ -127,6 +134,9 @@
                 <option value="Bensiini">Bensiini</option>
                 <option value="Diesel">Diesel</option>
             </select>
+
+
+
 
             <script>
 
@@ -175,6 +185,49 @@
                         xmlhttp.open("GET", sivu, true);
                         xmlhttp.send();
                 }
+                function poisto() {
+
+                    let koodi = document.getElementById("poistoKoodi");
+                    console.log(koodi.value);
+                    let sivu = "http://localhost:8080/api/poisto?Koodi=" + koodi.value;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+
+                    };
+                    xmlhttp.open("DELETE", sivu, true);
+                    xmlhttp.send();
+                }
+
+                function koodiHaku() {
+
+                    let koodi = document.getElementById("poistoKoodi");
+                    console.log(koodi.value);
+                    let sivu = "http://localhost:8080/api/koodihaku?Koodi=" + koodi.value;
+                    var xmlhttp = new XMLHttpRequest();
+                    xmlhttp.onreadystatechange = function() {
+                        json = JSON.parse(xmlhttp.responseText);
+                        var count = Object.keys(json).length;
+
+                        if(count === 0){
+                            alert("Koodilla ei löytynyt mitään");
+                        } else {
+                            poisto();
+                            alert("Poisto onnistui");
+                        }
+                    };
+                    xmlhttp.open("GET", sivu, true);
+                    xmlhttp.send();
+                }
+
+                var slider = document.getElementById("vol");
+                var output = document.getElementById("p1");
+                output.innerHTML = slider.value;
+                slider.oninput = function() {
+                    output.innerHTML = this.value;
+                }
+
+
+
             </script>
 
             <button onclick="makeQuery();" class="icon searchIcon">
@@ -182,6 +235,7 @@
             </button>
         </div>
     </div>
+
 </div>
 
 <script src="js/lightbox-plus-jquery.js"></script>
