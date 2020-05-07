@@ -5,15 +5,16 @@
 
 input[type=text], select, textarea {
      width: 40%;
-     padding: 12px;
+     padding: 4px;
      border: 1px solid #ccc;
+     display:inline;
      border-radius: 4px;
      resize: vertical;
  }
 
 input[type=number], select, textarea {
     width: 40%;
-    padding: 12px;
+    padding: 4px;
     border: 1px solid #ccc;
     border-radius: 4px;
     resize: vertical;
@@ -30,5 +31,9 @@ input[type=submit] {
 
 input[type=submit]:hover {
     background-color: gray;
+}
+
+p {
+    display:inline;
 }
 
