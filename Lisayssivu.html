@@ -11,7 +11,7 @@
 <h1>Oman ilmoituksen lisääminen</h1>
 <p>Tällä sivulla voit lisätä myyntipalstalle oman ilmoituksesi, muista täyttää kaikki kohdat alla olevat kohdat.</p>
 <form name="lisays" id="lis" action = "http://localhost:8080/api/lisays" method = "POST">
-    <p>Hinta:</p> <input type = "number" name = "Hinta" inputmode="numeric" required> <br>
+    <p >Hinta:</p> <input type = "number" name = "Hinta" inputmode="numeric" required> <br>
     <p>Malli:</p> <input type = "text" name = "Malli" required> <br>
     <p>Vuosimalli:</p> <input type = "number" name = "Vuosimalli" inputmode="numeric" required> <br>
     <p>Ajokilometrit:</p> <input type = "text" name = "Ajokilometrit" required> <br>
@@ -58,7 +58,6 @@
             json = JSON.parse(xmlhttp.responseText);
             var count = Object.keys(json).length;
             console.log(count);
-
             if(count === 0){
                 alert("Tietosi lisättiin");
                 return true;
