@@ -59,11 +59,11 @@
 <div id="page-container">
 
     <div id="content-wrap">
-        <div class="hakulaatikko2">
+        <div class="hakulaatikko3">
         <p>Haluatko lisätä oman ilmoituksen sivulle?<p><br>
-        <p>Haluatko lisätä oman ilmoituksen sivulle? Se onnistuu painalla alla olevaa linkkiä!</p><br>
-        <a style="padding-left: 5%" href="Lisayssivu.html">lisää</a>
-        <p>Tässä voit poistaa oman ilmoituksesi koodin avulla</p>
+        <p style="color: white">Haluatko lisätä oman ilmoituksen sivulle? Se onnistuu painalla alla olevaa linkkiä!</p><br>
+        <a class="lisays" style="padding: 2px" href="Lisayssivu.html">lisää</a>
+        <p style="color: white">Tässä voit poistaa oman ilmoituksesi koodin avulla</p>
         <input type = "text" name = "Koodi" required placeholder="Poistokoodi" id="poistoKoodi"> <br>
         <input type = "button" onclick="koodiHaku()" value="Poista">
         </div>
@@ -221,9 +221,9 @@
 
                 var slider = document.getElementById("vol");
                 var output = document.getElementById("p1");
-                output.innerHTML = slider.value;
+                output.innerHTML = slider.value + "€";
                 slider.oninput = function() {
-                    output.innerHTML = this.value;
+                    output.innerHTML = this.value + "€";
                 }
 
 
