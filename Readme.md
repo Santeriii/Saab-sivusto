@@ -7,7 +7,7 @@ http://localhost:8080/api/ilmoitukset?vaihteisto=" + valintaVaihteisto + "&merkk
 "SELECT * FROM Autoja " +
     "WHERE Vaihteisto = " + "'" + vaihteisto + "' " + "AND Malli = " + "'" + merkki + "' " + "AND Polttoaine = " + "'" + polttoaine + "' " + "AND Hinta < " + "'" + hinta + "'"
 
-Autoyksilön tiedot json-muodossa:
+Autoyksilön tiedot json-muodossa (kaikki haut hyödyntävät tätä muotoa):
 
 {"Hinta":"4200","Malli":"Saab 900","Vuosimalli":"1998","Ajokilometrit":"50000","Moottori":"1.8 l","Polttoaine":"Bensiini","Vaihteisto":"Manuaali","Rekisteritunnus":"OKS-909","Vari":"Sininen","Koodi":"koodi2","Kuva":"htttp://i.imgur.com/Testi.png","Kuvaus":"Kuvailu"}
 

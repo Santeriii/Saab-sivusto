@@ -22,25 +22,48 @@ con.connect(function(err) {
 });
 
 app.get('/api/ilmoitukset', function (req, res){
-    //res.send('hello world');
-    let merkki = req.param('merkki');
+    let polttoaine = req.param('polttoaine');
     let hinta = req.param('hinta');
-    console.log(merkki);
-    console.log(hinta);
-    if (merkki === "kaikki") {
-        var sql = "SELECT * FROM Autoja ";
+    let merkki = req.param('merkki');
+    let vaihteisto = req.param("vaihteisto");
+    console.log(vaihteisto);
+    if (vaihteisto === "kaikki" && merkki === "kaikki" && polttoaine === "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Hinta < " + "'" + hinta + "'";
+    } else if (vaihteisto === "kaikki" && merkki !== "kaikki" && polttoaine === "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Malli = " + "'" + merkki + "' " + "AND Hinta < " + "'" + hinta + "'";
+    } else if (merkki === "kaikki" && vaihteisto !== "kaikki" && polttoaine === "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Vaihteisto = " + "'" + vaihteisto + "' " + "AND Hinta < " + "'" + hinta + "'";
+    } else if (merkki === "kaikki" && vaihteisto === 'kaikki' && polttoaine === "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Hinta < " + "'" + hinta + "'";
+    } else if (merkki === "kaikki" && vaihteisto === "kaikki" && polttoaine !== "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Polttoaine = " + "'" + polttoaine + "' " +  "AND Hinta < " + "'" + hinta + "'";
+    } else if (merkki !== "kaikki" && vaihteisto === "kaikki" && polttoaine !== "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Malli = " + "'" + merkki + "' " + "AND Polttoaine = " + "'" + polttoaine + "' " + "AND Hinta < " + "'" + hinta + "'";
+    } else if (merkki === "kaikki" && vaihteisto !== "kaikki" && polttoaine !== "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Vaihteisto = " + "'" + vaihteisto + "' " + "AND Polttoaine = " + "'" + polttoaine + "' " + "AND Hinta < " + "'" + hinta + "'";
+    } else if (merkki === "kaikki" && vaihteisto === "kaikki" && polttoaine !== "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Polttoaine = " + "'" + polttoaine + "' " + "AND Hinta < " + "'" + hinta + "'";
+    } else if (merkki !== "kaikki" && vaihteisto !== "kaikki" && polttoaine === "kaikki") {
+        var sql = "SELECT * FROM Autoja " +
+            "WHERE Malli = " + "'" + merkki + "' " + "AND Vaihteisto = " + "'" + vaihteisto + "' " + "AND Hinta < " + "'" + hinta + "'";
     } else {
         var sql = "SELECT * FROM Autoja " +
-            "WHERE Malli = " + "'" + merkki + "'";
+            "WHERE Vaihteisto = " + "'" + vaihteisto + "' " + "AND Malli = " + "'" + merkki + "' " + "AND Polttoaine = " + "'" + polttoaine + "' " + "AND Hinta < " + "'" + hinta + "'";
     }
 
-        con.query(sql, function (err, result, fields) {
-            if (err) throw err;
-            //res.result;
-            res.send(result);
-            console.log(result);
-
-
+    con.query(sql, function (err, result, fields) {
+        if (err) throw err;
+        //res.result;
+        res.send(result);
+        console.log(result);
     });
 });
 
@@ -97,7 +120,6 @@ app.post("/api/lisays", urlencodedParser, function (req, res) {
        }
    });
    res.send(req.body);
-
 });
 
 app.delete("/api/poisto", urlencodedParser, function (req, res) {

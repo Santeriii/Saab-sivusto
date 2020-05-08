@@ -1,9 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <title>Etusivu</title>
+    <title>Myyntipalsta</title>
     <meta charset="UTF-8">
-    <title>Title</title>
     <link href="css/lightbox.css" rel="stylesheet" />
     <link href="css/Saab-sivusto.css" type="text/css" rel="stylesheet">
 
@@ -23,12 +22,6 @@
         img{
             position: static;
             float: left
-        }
-        .tekstilaatikko{
-            position: fixed;
-            top: 20%;
-            left: 20%;
-            height: 1000px;
         }
     </style>
 
@@ -50,9 +43,9 @@
     <li><a href="Etusivu.html">Etusivu</a></li>
     <li><a>Uutiset</a></li>
     <li><a href="Wiki.html">Wiki</a></li>
-    <li><a href="Myyntipalsta.html">Myyntipalsta</a></li>
+    <li><a href="MyyntiTietokanta.html">Myyntipalsta</a></li>
     <li><a href="Videot.html">Videot</a></li>
-    <li><a>Yhteystiedot</a></li>
+    <li><a href="Yhteystiedot.html">Yhteystiedot</a></li>
 </ul>
 
 
@@ -71,42 +64,6 @@
             <ul id="tulokset">
                 <p>Hae autoja</p>
             </ul>
-            <!--
-                        <div id="saab93" >
-                            <div class="tulos">
-                                <p><b>9 300€ Saab 9-3 Aero 2.0T Convertible</b><br><br>Tästä tehokas ja näyttävä kesäkiesi sopuhintaan!</p>
-                                <div class="hakukuva">
-                                    <a href="css/images/Saab_9-3_Aero.jpg" data-lightbox ="galleria" data-title="Saab 9-3">
-                                        <img class="pienihakukuva" src="css/images/Saab_9-3_Aero.jpg" alt="Saab 9-3">
-                                    </a>
-                                </div>
-                            </div>
-
-                        </div>
-
-
-                        <div id="saab95">
-                            <div class="tulos">
-                                <p><b>12 100€ Saab 9-5 Aero 2.0TTiD 190hv</b><br><br>Uusinta korimallia edustava, huippukuntoinen & vähän ajettu 9-5.</p>
-                                <div class="hakukuva">
-                                    <a href="css/images/Saab_9-5.jpg" data-lightbox ="galleria" data-title="Saab 9-5">
-                                        <img class="pienihakukuva" src="css/images/Saab_9-5.jpg" alt="Saab 9-5">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div id="saab94x">
-                            <div class="tulos">
-                                <p><b>23 400€ Saab 9-4x 2.0TTiD XWD</b><br><br>Harvinaista herkkua tarjolla! Alle vuoden valmistuksessa ollut Saab-katumaasturi.</p>
-                                <div class="hakukuva">
-                                    <a href="img/korvasieni.jpg" data-lightbox ="galleria" data-title="Saab 9-4x">
-                                        <img class="pienihakukuva" src="css/images/Saab_9-4x.jpg" alt="Saab 9-4x">
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
-                        -->
         </div>
 
 
@@ -157,29 +114,17 @@
                         var xmlhttp = new XMLHttpRequest();
                         xmlhttp.onreadystatechange = function() {
                             if (xmlhttp.readyState == 4 && xmlhttp.status == 200) {
-
-                                //json = xmlhttp.responseText;
                                 json = JSON.parse(xmlhttp.responseText);
                                 //myFunction(resultArr);
                                 var count = Object.keys(json).length;
                                 console.log(json);
                                 console.log(count);
-                                //if (json.numOfRows> 0){ // something found
-                                //console.log(json.numOfRows + ", " + json.Location_name);
-
                                 for(let i = 0; i<count; i++){
                                     console.log(json[i].Rekisteritunnus);
                                     tyhja += "<li id='autoInfo'><b>" + json[i].Hinta + "€ " + json[i].Vuosimalli + " " + json[i].Malli + " " + json[i].Moottori + ", " + json[i].Vaihteisto + " - Rek. " + json[i].Rekisteritunnus + "  Ml. " + json[i].Ajokilometrit + "km, väri: " + json[i].Vari + "</b></li><br>";
                                     tyhja += "<li class=\"articlename\">"+ "\n" + json[i].Kuvaus + "</li><img class=\"half\" src='" + json[i].Kuva + "' alt=\"Saab 9-3\">";
                                 }
                                 lista.innerHTML = tyhja;
-                                //}
-                                /*else {
-
-                                    document.getElementById("locationInfo").innerHTML = "<br/>Ei tapahtumatietoja tältä ajalta.";
-
-                                }*/
-
                             }
                         };
                         xmlhttp.open("GET", sivu, true);
